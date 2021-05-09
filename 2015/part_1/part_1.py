@@ -21,4 +21,21 @@ def part_1_of_challenge():
 					i -= 1
 			print(i)
 
-part_1_of_challenge()
+def part_2_of_challenge():
+	'''
+		Now, given the same instructions, find the position of the first character that causes him 
+		to enter the basement (floor -1). The first character in the instructions has position 1, the second character has position 2, and so on.
+	'''
+	with open(sys.argv[1], 'r') as f:
+		i = 0
+		j = 0
+		for j_file in f.readlines():
+			for p_parathensis in j_file:
+				if(p_parathensis == '('):
+					i += 1
+				elif(p_parathensis == ')'):
+					i -= 1
+				j += 1
+				if(i == -1):
+					print(j)
+					sys.exit(0)
